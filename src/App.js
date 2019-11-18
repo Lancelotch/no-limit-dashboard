@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Switch, Route, Router, Redirect } from "react-router-dom";
 import routes from "./routes";
 import pathUrls from "./routes/pathUrls";
 import { createBrowserHistory } from "history";
+import { RootContextWithRouter } from "./contexts/Root";
 
 export default function App() {
   const RouteWithLayout = ({
@@ -34,14 +35,18 @@ export default function App() {
 
   return (
     <Router history={createBrowserHistory()}>
-      <Switch>
-        <Route
-          exact
-          path="/"
-          component={() => <Redirect to={pathUrls.dashboard} />}
-        />
-        {routeComponents}
-      </Switch>
+      <Suspense fallback={null}>
+        <RootContextWithRouter>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              component={() => <Redirect to={pathUrls.dashboard} />}
+            />
+            {routeComponents}
+          </Switch>
+        </RootContextWithRouter>
+      </Suspense>
     </Router>
   );
 }
