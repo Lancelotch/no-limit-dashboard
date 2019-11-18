@@ -2,15 +2,12 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "../../components/Button";
 import { useFormik } from "formik";
-import validationSchema from "./validationShema";
-import { useRootContext } from "../../contexts/Root";
+import validationSchema from "./validationSchema";
 
 export default function Form() {
-  const {history} = useRootContext();
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: ""
+      email: ""
     },
     validationSchema: validationSchema,
     onSubmit: values => {
@@ -24,7 +21,6 @@ export default function Form() {
         onSubmit={e => {
           e.preventDefault();
           handleSubmit(e);
-          history.push('/dashboard');
         }}
       >
         <TextField
@@ -33,23 +29,8 @@ export default function Form() {
           margin="normal"
           onChange={handleChange}
           value={values.email}
-          autoComplete={""}
           error={touched.email && errors.email ? true : false}
           helperText={touched.email && errors.email ? errors.email : ""}
-          fullWidth
-        />
-        <TextField
-          name="password"
-          type="password"
-          label="Password"
-          margin="normal"
-          onChange={handleChange}
-          value={values.password}
-          autoComplete={""}
-          error={touched.password && errors.password ? true : false}
-          helperText={
-            touched.password && errors.password ? errors.password : ""
-          }
           fullWidth
         />
         <Button
@@ -60,7 +41,7 @@ export default function Form() {
           type="submit"
           fullWidth
         >
-          Log In
+          Sent
         </Button>
       </form>
     </React.Fragment>
