@@ -1,11 +1,11 @@
 import React from "react";
 import { makeStyles, Grid, Divider } from "@material-ui/core";
 import logoDashboard from "../../assets/image/image1.png";
-import FormLogin from "../../components/FormLogin";
 import logoNoLimit from "../../assets/image/image2.png";
 import TextButton from "../../components/TextButton";
 import Text from "../../components/Text";
 import { useRootContext } from "../../contexts/Root";
+import FormSignup from "../../components/FormSignup";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Login() {
+export default function Signup() {
   const classes = useStyles();
   const {history} = useRootContext();
   return (
@@ -25,15 +25,12 @@ export default function Login() {
       <Grid item md={5}>
         <div className={classes.root}>
           <img src={logoNoLimit} alt="logo_no_limit" />
-          <FormLogin />
-          <TextButton onClick={() => history.push('/forgot-password')}>
-            Forgot Password ?
-          </TextButton>
+          <FormSignup />
           <Divider />
           <Text>
-            Don't have an account?{" "}
-            <TextButton onClick={() => history.push('/signup')}>
-              Sign Up
+            Already have account?{" "}
+            <TextButton onClick={() => history.push('/login')}>
+              Log In
             </TextButton>
           </Text>
         </div>
