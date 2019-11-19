@@ -1,10 +1,10 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-import Button from "../../components/Button";
+import Button from "../Button";
 import { useFormik } from "formik";
 import validationSchema from "./validationSchema";
 
-export default function Form() {
+export default function FormConfirmEmail({onSuccess}) {
   const formik = useFormik({
     initialValues: {
       email: ""
@@ -12,6 +12,7 @@ export default function Form() {
     validationSchema: validationSchema,
     onSubmit: values => {
       console.log(values);
+      onSuccess();
     }
   });
   const { handleSubmit, handleChange, values, errors, touched } = formik;

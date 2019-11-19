@@ -1,11 +1,11 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-import Button from "../../components/Button";
+import Button from "../Button";
 import { useFormik } from "formik";
 import validationSchema from "./validationShema";
 import { useRootContext } from "../../contexts/Root";
 
-export default function Form() {
+export default function FormLogin() {
   const {history} = useRootContext();
   const formik = useFormik({
     initialValues: {
