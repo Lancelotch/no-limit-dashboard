@@ -1,12 +1,12 @@
 const dashboard = "/dashboard";
 const login = "/login";
-const register = "/register";
+const signup = "/signup";
 const forgotPassword = "/forgot-password";
 
 const pathUrls = {
   dashboard,
   login,
-  register,
+  signup,
   forgotPassword
 };
 

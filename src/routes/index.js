@@ -3,8 +3,8 @@ import Login from "../pages/Login";
 import FullLayout from "../layouts/FullLayout";
 import MainLayout from "../layouts/MainLayout";
 import Dashboard from "../pages/Dashboard";
-import Register from "../pages/Register";
 import ForgotPassword from "../pages/ForgotPassword";
+import Signup from "../pages/Signup";
 
 const routes = [
   {
@@ -18,8 +18,8 @@ const routes = [
     layout: FullLayout
   },
   {
-    path: pathUrls.register,
-    component: Register,
+    path: pathUrls.signup,
+    component: Signup,
     layout: FullLayout
   },
   {
