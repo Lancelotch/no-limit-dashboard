@@ -5,6 +5,7 @@ import MainLayout from "../layouts/MainLayout";
 import Dashboard from "../pages/Dashboard";
 import ForgotPassword from "../pages/ForgotPassword";
 import Signup from "../pages/Signup";
+import VerifyAccount from "../pages/VerifyAccount";
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
   {
     path: pathUrls.signup,
     component: Signup,
+    layout: FullLayout
+  },
+  {
+    path: pathUrls.verifyAccount,
+    component: VerifyAccount,
     layout: FullLayout
   },
   {
