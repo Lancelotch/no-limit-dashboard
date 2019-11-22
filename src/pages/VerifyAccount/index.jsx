@@ -48,7 +48,7 @@ export default function VerifyAccount() {
             />
           )}
           {current.value === "next" && (
-            <FormVerifySuccess onClick={() => history.push("/social-media")} />
+            <FormVerifySuccess onClick={() => history.push("/connect-social-media")} />
           )}
         </div>
       </Grid>

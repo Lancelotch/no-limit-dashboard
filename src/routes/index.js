@@ -6,6 +6,7 @@ import Dashboard from "../pages/Dashboard";
 import ForgotPassword from "../pages/ForgotPassword";
 import Signup from "../pages/Signup";
 import VerifyAccount from "../pages/VerifyAccount";
+import ConnectSocialMedia from "../pages/ConnectSocialMedia";
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
   {
     path: pathUrls.verifyAccount,
     component: VerifyAccount,
+    layout: FullLayout
+  },
+  {
+    path: pathUrls.connectSocialMedia,
+    component: ConnectSocialMedia,
     layout: FullLayout
   },
   {
