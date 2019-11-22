@@ -15,6 +15,7 @@ export default function FormLogin() {
     validationSchema: validationSchema,
     onSubmit: values => {
       console.log(values);
+      history.push('/dashboard');
     }
   });
   const { handleSubmit, handleChange, values, errors, touched } = formik;
@@ -24,7 +25,6 @@ export default function FormLogin() {
         onSubmit={e => {
           e.preventDefault();
           handleSubmit(e);
-          history.push('/dashboard');
         }}
       >
         <TextField

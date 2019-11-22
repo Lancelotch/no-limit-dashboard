@@ -6,7 +6,7 @@ import validationSchema from "./validationShema";
 import { useRootContext } from "../../contexts/Root";
 
 export default function FormSignup() {
-  const {history} = useRootContext();
+  const { history } = useRootContext();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -15,6 +15,7 @@ export default function FormSignup() {
     validationSchema: validationSchema,
     onSubmit: values => {
       console.log(values);
+      history.push("/verify-account");
     }
   });
   const { handleSubmit, handleChange, values, errors, touched } = formik;
@@ -24,7 +25,6 @@ export default function FormSignup() {
         onSubmit={e => {
           e.preventDefault();
           handleSubmit(e);
-          history.push('/dashboard');
         }}
       >
         <TextField
