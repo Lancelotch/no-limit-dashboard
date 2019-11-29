@@ -3,10 +3,20 @@ import TextField from "@material-ui/core/TextField";
 import Button from "../Button";
 import { useFormik } from "formik";
 import validationSchema from "./validationShema";
-import { useRootContext } from "../../contexts/Root";
+import { makeStyles } from '@material-ui/core/styles';
 
-export default function FormLogin() {
-  const {history} = useRootContext();
+const useStyles = makeStyles(theme => ({
+  form: {
+    width: "100%",
+    marginTop: theme.spacing(3)
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 3)
+  }
+}));
+
+export default function FormLogin({onSubmit}) {
+  const classes = useStyles();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -15,7 +25,7 @@ export default function FormLogin() {
     validationSchema: validationSchema,
     onSubmit: values => {
       console.log(values);
-      history.push('/dashboard');
+      onSubmit(values)
     }
   });
   const { handleSubmit, handleChange, values, errors, touched } = formik;
@@ -26,14 +36,14 @@ export default function FormLogin() {
           e.preventDefault();
           handleSubmit(e);
         }}
+        className={classes.form}
       >
         <TextField
           name="email"
           label="Email / Phone Number"
-          margin="normal"
           onChange={handleChange}
           value={values.email}
-          autoComplete={""}
+          autoComplete="email"
           error={touched.email && errors.email ? true : false}
           helperText={touched.email && errors.email ? errors.email : ""}
           fullWidth
@@ -42,10 +52,9 @@ export default function FormLogin() {
           name="password"
           type="password"
           label="Password"
-          margin="normal"
           onChange={handleChange}
           value={values.password}
-          autoComplete={""}
+          autoComplete="current-password"
           error={touched.password && errors.password ? true : false}
           helperText={
             touched.password && errors.password ? errors.password : ""
@@ -58,6 +67,7 @@ export default function FormLogin() {
           size="medium"
           aria-label="add"
           type="submit"
+          className={classes.submit}
           fullWidth
         >
           Log In
