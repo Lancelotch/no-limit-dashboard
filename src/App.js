@@ -4,6 +4,8 @@ import routes from "./routes";
 import pathUrls from "./routes/pathUrls";
 import { createBrowserHistory } from "history";
 import { RootContextWithRouter } from "./contexts/Root";
+import { ThemeProvider } from "@material-ui/styles";
+import theme from "./theme";
 
 export default function App() {
   const RouteWithLayout = ({
@@ -34,19 +36,21 @@ export default function App() {
   });
 
   return (
-    <Router history={createBrowserHistory()}>
-      <Suspense fallback={null}>
-        <RootContextWithRouter>
-          <Switch>
-            <Route
-              exact
-              path="/"
-              component={() => <Redirect to={pathUrls.dashboard} />}
-            />
-            {routeComponents}
-          </Switch>
-        </RootContextWithRouter>
-      </Suspense>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router history={createBrowserHistory()}>
+        <Suspense fallback={null}>
+          <RootContextWithRouter>
+            <Switch>
+              <Route
+                exact
+                path="/"
+                component={() => <Redirect to={pathUrls.performance} />}
+              />
+              {routeComponents}
+            </Switch>
+          </RootContextWithRouter>
+        </Suspense>
+      </Router>
+    </ThemeProvider>
   );
 }
