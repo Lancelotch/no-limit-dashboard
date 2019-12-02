@@ -3,14 +3,14 @@ import { menus } from "./menus";
 import SidebarNav from "./components/SidebarNav";
 import { Drawer } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles(theme => ({
   drawer: {
     width: 240,
-    [theme.breakpoints.up('lg')]: {
+    [theme.breakpoints.up("lg")]: {
       marginTop: 64,
-      height: 'calc(100% - 64px)'
+      height: "calc(100% - 64px)"
     }
   },
   root: {
@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Sidebar({onClose, open, variant}) {
+export default function Sidebar({ onClose, open, variant }) {
   const classes = useStyles();
   return (
     <Drawer
@@ -38,7 +38,9 @@ export default function Sidebar({onClose, open, variant}) {
       open={open}
       variant={variant}
     >
-      <SidebarNav menus={menus} />
+      <div className={classes.root}>
+        <SidebarNav menus={menus} />
+      </div>
     </Drawer>
   );
 }

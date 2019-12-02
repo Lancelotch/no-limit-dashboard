@@ -2,11 +2,11 @@ import pathUrls from "./pathUrls";
 import Login from "../pages/Login";
 import FullLayout from "../layouts/FullLayout";
 import MainLayout from "../layouts/MainLayout";
-import Dashboard from "../pages/Dashboard";
 import ForgotPassword from "../pages/ForgotPassword";
 import Signup from "../pages/Signup";
 import VerifyAccount from "../pages/VerifyAccount";
 import ConnectSocialMedia from "../pages/ConnectSocialMedia";
+import Performance from "../pages/Performance";
 
 const routes = [
   {
@@ -35,10 +35,10 @@ const routes = [
     layout: FullLayout
   },
   {
-    path: pathUrls.dashboard,
-    component: Dashboard,
+    path: pathUrls.performance,
+    component: Performance,
     layout: MainLayout
-  },
+  }
 ];
 
 export default routes;

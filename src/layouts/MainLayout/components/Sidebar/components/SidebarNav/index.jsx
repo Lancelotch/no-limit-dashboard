@@ -4,20 +4,34 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Collapse
+  Collapse,
+  Typography
 } from "@material-ui/core";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 
 import { makeStyles } from "@material-ui/core/styles";
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme=>({
   root: {},
   item: {
     display: "flex",
     paddingTop: 0,
     paddingBottom: 0
-  }
-});
+  },
+  textMenu: {
+    padding: '10px 0px',
+    justifyContent: 'flex-start',
+    width: '100%',
+  },
+  icon: {
+    color: theme.palette.icon,
+    width: 24,
+    height: 24,
+    display: 'flex',
+    alignItems: 'center',
+    marginRight: theme.spacing(1)
+  },
+}));
 
 export default function SidebarNav({menus}) {
   const initialOpen = menus.map(()=>false);
@@ -42,8 +56,8 @@ export default function SidebarNav({menus}) {
             button
             onClick={() => handleOpen(index)}
           >
-            <ListItemIcon>{icon}</ListItemIcon>
-            <ListItemText primary={text} />
+            <div className={classes.icon}>{icon}</div>
+            <ListItemText className={classes.textMenu} children={<Typography variant="h6">{text}</Typography>} />
             {opens[index] ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Collapse in={opens[index]} timeout="auto" unmountOnExit>
