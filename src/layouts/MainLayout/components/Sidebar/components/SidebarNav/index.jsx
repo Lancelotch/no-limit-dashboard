@@ -11,7 +11,9 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
-  root: {},
+  root: {
+    paddingTop: theme.spacing(2)
+  },
   item: {
     display: "flex",
     paddingTop: 0,
@@ -43,7 +45,8 @@ const useStyles = makeStyles(theme => ({
     fontWeight: theme.typography.fontWeightMedium,
     '& $icon': {
       color: theme.palette.primary.main
-    }
+    },
+    borderBottom: `1px solid ${theme.palette.white}`
   }
 }));
 
