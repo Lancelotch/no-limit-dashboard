@@ -39,5 +39,5 @@ export const menus = [
 ];
 
 export const initialOpen = function(){
-    return menus.map(()=>false);
+    return menus.map((_, i)=>i === 0 ? true: false);
 }
